@@ -18,7 +18,7 @@ enum FacingDirection
 var _facing_direction: FacingDirection = FacingDirection.RIGHT
 var _stick_to_pick_up: Stick
 
-var stick_view_scn: = preload("res://scn/stick_view.tscn")
+var _poop_scn: = preload("res://scn/poop.tscn")
 
 
 func _physics_process(delta: float) -> void:
@@ -34,7 +34,7 @@ func _physics_process(delta: float) -> void:
 
 	if not is_on_floor():
 		# Apply gravity
-		velocity.y += GRAVITY * delta
+		velocity.y += GRAVITY * delta / 2.0
 
 		# Play flight animation whilst we are in the air
 		_animation.play("fly")
@@ -45,6 +45,7 @@ func _physics_process(delta: float) -> void:
 		else:
 			_animation.play("run")
 
+	# Flip
 	if _facing_direction == FacingDirection.RIGHT:
 		_animation.flip_h = true
 	else:
@@ -59,11 +60,20 @@ func _physics_process(delta: float) -> void:
 
 func _process(_delta: float) -> void:
 	# TODO: Maybe signal is not even needed?
+	# Double check necessary for case where we are standing on sticks and
+	# we have full capacity and we then build something (no enter signal is emitted)
 	for body in $PickupRange.get_overlapping_bodies():
 		if body as Stick:
 			if not _stick_to_pick_up:
 				_stick_to_pick_up = body
 				stick_pick_up_requested.emit()
+
+	# Poop
+	if Input.is_action_just_pressed("poop"):
+		var poop: = _poop_scn.instantiate()
+		get_tree().root.add_child(poop)
+		poop.global_position = global_position
+		poop.velocity = velocity
 
 
 func _on_pickup_range_body_entered(body: Node2D):
