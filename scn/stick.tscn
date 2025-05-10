@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://bdf2stitcfdhu"]
+
+[ext_resource type="Script" uid="uid://dsxv1n07tnc41" path="res://src/stick.gd" id="1_01kma"]
+[ext_resource type="Texture2D" uid="uid://cbrm6s6thma4n" path="res://ast/stick.png" id="2_i7qev"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bsjwa"]
+radius = 26.4008
+
+[node name="Stick" type="Area2D"]
+script = ExtResource("1_01kma")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_bsjwa")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_i7qev")
