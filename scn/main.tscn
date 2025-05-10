@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dxf2gretecw51" path="res://scn/building_manager.tscn" id="4_gyckk"]
 [ext_resource type="PackedScene" uid="uid://d10aid3srs8df" path="res://scn/user_interface.tscn" id="4_nq6di"]
 [ext_resource type="PackedScene" uid="uid://mbyctpra7whw" path="res://scn/stick.tscn" id="5_b6phj"]
-[ext_resource type="PackedScene" uid="uid://bui71ctakht1x" path="res://scn/enemy.tscn" id="7_vnkvy"]
+[ext_resource type="PackedScene" uid="uid://d02u64d6xfutk" path="res://scn/enemy.tscn" id="7_vnkvy"]
 [ext_resource type="PackedScene" uid="uid://b8n7fdkldks7n" path="res://scn/egg_nest.tscn" id="8_315pe"]
 
 

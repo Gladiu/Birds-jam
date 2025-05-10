@@ -6,6 +6,7 @@ signal stick_counter_updated(new_value: int)
 
 @export var source_id = 0
 @export var atlas_coordinates = Vector2i(7, 12)
+@export var mouse_collider_scn: PackedScene
 const MAX_CAPACITY = 30
 
 @onready var tile_map: TileMapLayer = $BuildingTilemap
@@ -45,6 +46,8 @@ func _build_block():
 	if Input.is_action_just_pressed("mouse_click"):
 		var mouse_position = get_global_mouse_position()
 		var map_position = tile_map.local_to_map(mouse_position)
+		if _check_mouse_collider_occupied(map_position):
+			return
 		if holded_sticks < _block_cost:
 			return
 		
@@ -71,3 +74,12 @@ func _preview_element():
 func _on_player_stick_pick_up_requested():
 	var pick_up_success = add_sticks(1)
 	stick_pick_up_response.emit(pick_up_success)
+
+
+func _check_mouse_collider_occupied(mouse_position):
+	var instance: MouseCollider = mouse_collider_scn.instantiate()
+	add_child(instance)
+	instance.global_position = tile_map.map_to_local(mouse_position)
+	var result = instance.is_area_occupied()
+	#instance.queue_free()
+	return result
