@@ -64,7 +64,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rd7jk"]
-size = Vector2(88, 107.5)
+size = Vector2(27, 107.5)
 
 [node name="Enemy" type="CharacterBody2D"]
 collision_layer = 8
@@ -99,7 +99,7 @@ collision_layer = 0
 collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, 39.25)
+position = Vector2(-0.5, 39.25)
 shape = SubResource("RectangleShape2D_rd7jk")
 
 [node name="EggDestroyCounter" type="Timer" parent="."]
