@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://b8n7fdkldks7n"]
+[gd_scene load_steps=4 format=3 uid="uid://c0ke2ichij1oy"]
 
 [ext_resource type="Texture2D" uid="uid://bumpd5acmw66i" path="res://ast/egg_nest.png" id="1_g81j7"]
-[ext_resource type="Script" uid="uid://bcu0dkl2gops8" path="res://src/egg_nest.gd" id="1_lw1lm"]
+[ext_resource type="Script" path="res://src/egg_nest.gd" id="1_lw1lm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g81j7"]
 radius = 9.0
@@ -10,6 +10,7 @@ radius = 9.0
 script = ExtResource("1_lw1lm")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(3, 3)
 texture = ExtResource("1_g81j7")
 
 [node name="Area2D" type="Area2D" parent="."]

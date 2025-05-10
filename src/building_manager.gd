@@ -5,13 +5,13 @@ signal stick_pick_up_response(pick_up: bool)
 signal stick_counter_updated(new_value: int)
 
 @export var source_id = 0
-@export var atlas_coordinates = Vector2i(0, 0)
+@export var atlas_coordinates = Vector2i(7, 12)
 const MAX_CAPACITY = 30
 
 @onready var tile_map: TileMapLayer = $BuildingTilemap
 @onready var preview_tile_map: TileMapLayer = $PreviewTilemap
 @onready var preview_active = true
-@onready var holded_sticks: int = 5:
+@onready var holded_sticks: int = 5000:
 	set(value):
 		holded_sticks = value
 		stick_counter_updated.emit(holded_sticks)
