@@ -12,8 +12,15 @@ script = ExtResource("1_7rek1")
 [node name="World" parent="." instance=ExtResource("2_a14j1")]
 
 [node name="Player" parent="." instance=ExtResource("3_4hsr3")]
+collision_mask = 14
 
 [node name="BuildingManager" parent="." instance=ExtResource("4_gyckk")]
 
 [node name="Enemy" parent="." instance=ExtResource("5_b6phj")]
 position = Vector2(680, 530)
+
+[node name="Timer60s" type="Timer" parent="."]
+wait_time = 15.0
+autostart = true
+
+[connection signal="timeout" from="Timer60s" to="." method="_on_timer_60s_timeout"]
