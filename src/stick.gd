@@ -26,7 +26,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	# Fall from the sky
 	if not is_on_floor():
-		velocity.y += GRAVITY * delta
+		velocity.y += GRAVITY * delta / 4.0 # Slow it down
 		move_and_slide()
 
 func _on_body_entered(body: Node2D) -> void:
