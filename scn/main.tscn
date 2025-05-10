@@ -8,7 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://d10aid3srs8df" path="res://scn/user_interface.tscn" id="4_nq6di"]
 [ext_resource type="PackedScene" uid="uid://mbyctpra7whw" path="res://scn/stick.tscn" id="5_b6phj"]
 [ext_resource type="PackedScene" uid="uid://bui71ctakht1x" path="res://scn/enemy.tscn" id="7_vnkvy"]
-[ext_resource type="PackedScene" uid="uid://c0ke2ichij1oy" path="res://scn/egg_nest.tscn" id="8_315pe"]
+[ext_resource type="PackedScene" uid="uid://b8n7fdkldks7n" path="res://scn/egg_nest.tscn" id="8_315pe"]
+
 
 [node name="Main" type="Node"]
 script = ExtResource("1_7rek1")
@@ -24,6 +25,7 @@ wait_time = 15.0
 autostart = true
 
 [node name="Player" parent="." instance=ExtResource("3_4hsr3")]
+position = Vector2(151, 74)
 
 [node name="UserInterface" parent="Player" instance=ExtResource("4_nq6di")]
 offset_left = 338.0

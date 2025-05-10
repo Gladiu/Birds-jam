@@ -29,7 +29,6 @@ func _physics_process(delta: float) -> void:
 		velocity.y += GRAVITY * delta
 		move_and_slide()
 
-
 func _on_body_entered(body: Node2D) -> void:
 	pass
-	#print(body)
+
