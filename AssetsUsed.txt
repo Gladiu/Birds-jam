@@ -1,3 +1,4 @@
 World assets https://pickle-seller.itch.io/1-bit-tiles
-Sky assets https://ansimuz.itch.io/gothicvania-patreon-collection
 Birb asset: https://ma9ici4n.itch.io/pixel-art-bird-16x16
+Character https://butterhands.itch.io/doomsphere-charset
+Background https://edermunizz.itch.io/1-bit-pixel-art-forest
