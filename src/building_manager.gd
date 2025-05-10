@@ -81,5 +81,5 @@ func _check_mouse_collider_occupied(mouse_position):
 	add_child(instance)
 	instance.global_position = tile_map.map_to_local(mouse_position)
 	var result = instance.is_area_occupied()
-	#instance.queue_free()
+	instance.queue_free()
 	return result
