@@ -11,14 +11,13 @@ const MAX_CAPACITY = 30
 @onready var tile_map: TileMapLayer = $BuildingTilemap
 @onready var preview_tile_map: TileMapLayer = $PreviewTilemap
 @onready var preview_active = true
-@onready var holded_sticks: int = 0:
+@onready var holded_sticks: int = 5:
 	set(value):
 		holded_sticks = value
 		stick_counter_updated.emit(holded_sticks)
 
 
 var _block_cost = 3
-
 
 func add_sticks(sticks_count) -> bool:
 	if holded_sticks + sticks_count > MAX_CAPACITY:
@@ -31,6 +30,9 @@ func add_sticks(sticks_count) -> bool:
 func destroy_block(rid) -> bool:
 	return tile_map.destroy_block(rid)
 
+
+func _ready():
+	stick_counter_updated.emit(holded_sticks)
 
 func _physics_process(_delta):
 	if preview_active:
