@@ -1,4 +1,5 @@
 extends TileMapLayer
+class_name BuildingTileMap
 
 enum BlockStatus {
 	NONE = 0,
@@ -10,8 +11,7 @@ enum BlockStatus {
 @export var tile_health = 100
 
 
-func destroy_block(rid):
-	var cords = get_coords_for_body_rid(rid)
+func destroy_block(cords):
 	return damage_block(cords, tile_dmg) != BlockStatus.NONE
 
 

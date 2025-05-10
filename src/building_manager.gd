@@ -8,7 +8,7 @@ class_name BuildingManager
 @onready var tile_map: TileMapLayer = $BuildingTilemap
 @onready var preview_tile_map: TileMapLayer = $PreviewTilemap
 @onready var preview_active = true
-@onready var holded_sticks = 3
+@onready var holded_sticks = 3333
 
 var _block_cost = 3
 
