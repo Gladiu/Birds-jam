@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Enemy
 
 const SPEED = 100
 const CLIMB_TOP_SPEED = -200

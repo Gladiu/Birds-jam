@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Player
 
 signal stick_pick_up_requested
 

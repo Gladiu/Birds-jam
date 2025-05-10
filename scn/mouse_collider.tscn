@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwspvnjptjwjd"]
+
+[ext_resource type="Script" uid="uid://dflgyw0c7ser6" path="res://src/mouse_collider.gd" id="1_bqusk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bqusk"]
+size = Vector2(40, 40)
+
+[node name="MouseCollider" type="Node2D"]
+script = ExtResource("1_bqusk")
+
+[node name="Check" type="ShapeCast2D" parent="."]
+shape = SubResource("RectangleShape2D_bqusk")
+target_position = Vector2(0, 0)
+collision_mask = 9
