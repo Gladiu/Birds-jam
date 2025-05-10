@@ -17,7 +17,6 @@ func toggle_day_night():
 		current_time = TIME_ENUM.DAY
 	
 func set_time_factor(factor : float):
-	print(factor)
 	if current_time == TIME_ENUM.DAY:
 		$Sky/ColorRect.color = DAY_COLOR.lerp(NIGHT_COLOR, factor)
 	else:
