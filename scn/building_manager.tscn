@@ -1,41 +1,20 @@
-[gd_scene load_steps=9 format=3 uid="uid://dxf2gretecw51"]
+[gd_scene load_steps=6 format=3 uid="uid://dxf2gretecw51"]
 
-[ext_resource type="Texture2D" uid="uid://bpqesynfxsqxn" path="res://ast/tileset.png" id="1_mpne3"]
 [ext_resource type="Script" uid="uid://b7ojvd62b5dvp" path="res://src/building_manager.gd" id="1_uq00a"]
-[ext_resource type="Texture2D" uid="uid://bejs4k7idic4k" path="res://ast/buidling_block.png" id="2_2d6ea"]
+[ext_resource type="TileSet" uid="uid://farfaivr4lg4" path="res://scn/building_manager_tileset.res" id="2_rgwiy"]
 [ext_resource type="Script" uid="uid://bgkw2yhn53jk2" path="res://src/building_tilemap.gd" id="3_rgwiy"]
+[ext_resource type="Shader" uid="uid://daldmp0h7rqi6" path="res://scn/preview_building_manager.gdshader" id="4_2d6ea"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2d6ea"]
-texture = ExtResource("2_2d6ea")
-texture_region_size = Vector2i(48, 48)
-0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-24, -24, 24, -24, 24, 24, -24, 24)
-0:0/0/custom_data_0 = 100
-
-[sub_resource type="TileSet" id="TileSet_rgwiy"]
-tile_size = Vector2i(48, 48)
-physics_layer_0/collision_layer = 1
-custom_data_layer_0/name = "health"
-custom_data_layer_0/type = 2
-sources/0 = SubResource("TileSetAtlasSource_2d6ea")
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uq00a"]
-texture = ExtResource("1_mpne3")
-margins = Vector2i(528, 1632)
-texture_region_size = Vector2i(48, 48)
-0:0/0 = 0
-0:0/0/modulate = Color(1, 1, 1, 0.478431)
-
-[sub_resource type="TileSet" id="TileSet_mpne3"]
-tile_size = Vector2i(48, 48)
-sources/0 = SubResource("TileSetAtlasSource_uq00a")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f6djv"]
+shader = ExtResource("4_2d6ea")
 
 [node name="BuildingManager" type="Node2D"]
 script = ExtResource("1_uq00a")
 
 [node name="BuildingTilemap" type="TileMapLayer" parent="."]
-tile_set = SubResource("TileSet_rgwiy")
+tile_set = ExtResource("2_rgwiy")
 script = ExtResource("3_rgwiy")
 
 [node name="PreviewTilemap" type="TileMapLayer" parent="."]
-tile_set = SubResource("TileSet_mpne3")
+material = SubResource("ShaderMaterial_f6djv")
+tile_set = ExtResource("2_rgwiy")

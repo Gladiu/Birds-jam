@@ -6,8 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://dxf2gretecw51" path="res://scn/building_manager.tscn" id="4_gyckk"]
 [ext_resource type="PackedScene" uid="uid://d10aid3srs8df" path="res://scn/user_interface.tscn" id="4_nq6di"]
 [ext_resource type="PackedScene" uid="uid://mbyctpra7whw" path="res://scn/stick.tscn" id="5_b6phj"]
-[ext_resource type="PackedScene" path="res://scn/enemy.tscn" id="7_vnkvy"]
-[ext_resource type="PackedScene" uid="uid://b8n7fdkldks7n" path="res://scn/egg_nest.tscn" id="8_315pe"]
+[ext_resource type="PackedScene" uid="uid://bui71ctakht1x" path="res://scn/enemy.tscn" id="7_vnkvy"]
+[ext_resource type="PackedScene" uid="uid://c0ke2ichij1oy" path="res://scn/egg_nest.tscn" id="8_315pe"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_7rek1")
@@ -45,6 +45,9 @@ position = Vector2(528, 514)
 
 [node name="EggNest" parent="." instance=ExtResource("8_315pe")]
 position = Vector2(-216, 456)
+
+[node name="Enemy2" parent="." instance=ExtResource("7_vnkvy")]
+position = Vector2(808, 432)
 
 [connection signal="stick_counter_updated" from="BuildingManager" to="Player/UserInterface" method="_on_building_manager_stick_counter_updated"]
 [connection signal="stick_pick_up_response" from="BuildingManager" to="Player" method="_on_building_manager_stick_pick_up_response"]

@@ -9,7 +9,8 @@ enum BlockStatus {
 
 @export var tile_dmg = 25
 @export var tile_health = 100
-
+const terrain_set = 0
+const terrain = 0
 
 func destroy_block(cords):
 	return damage_block(cords, tile_dmg) != BlockStatus.NONE
@@ -23,8 +24,10 @@ func set_health(cords, value):
 func build_block(map_position, source_id, atlas_coordinates):
 	if get_cell_tile_data(map_position):
 		return false
+
+
 	set_cell(map_position, source_id, atlas_coordinates)
-	get_cell_tile_data(map_position).set_custom_data("health", tile_health)
+	#get_cell_tile_data(map_position).set_custom_data("health", tile_health)
 	return true
 
 
