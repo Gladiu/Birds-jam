@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c5s73cfo1rpsc"]
+[gd_scene load_steps=9 format=3 uid="uid://c5s73cfo1rpsc"]
 
 [ext_resource type="Script" uid="uid://c7xvlvsqkxxde" path="res://src/main.gd" id="1_7rek1"]
 [ext_resource type="PackedScene" uid="uid://clj8dp32kn2bc" path="res://scn/world.tscn" id="2_a14j1"]
@@ -6,7 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://dxf2gretecw51" path="res://scn/building_manager.tscn" id="4_gyckk"]
 [ext_resource type="PackedScene" uid="uid://d10aid3srs8df" path="res://scn/user_interface.tscn" id="4_nq6di"]
 [ext_resource type="PackedScene" uid="uid://mbyctpra7whw" path="res://scn/stick.tscn" id="5_b6phj"]
-[ext_resource type="PackedScene" uid="uid://bui71ctakht1x" path="res://scn/enemy.tscn" id="7_vnkvy"]
+[ext_resource type="PackedScene" path="res://scn/enemy.tscn" id="7_vnkvy"]
+[ext_resource type="PackedScene" uid="uid://b8n7fdkldks7n" path="res://scn/egg_nest.tscn" id="8_315pe"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_7rek1")
@@ -28,9 +29,24 @@ offset_right = 338.0
 offset_bottom = -289.0
 
 [node name="Stick" parent="." instance=ExtResource("5_b6phj")]
-position = Vector2(182, 545)
+position = Vector2(223, 530)
+
+[node name="Stick2" parent="." instance=ExtResource("5_b6phj")]
+position = Vector2(113, 380)
+
+[node name="Stick3" parent="." instance=ExtResource("5_b6phj")]
+position = Vector2(284, 441)
+
+[node name="Stick4" parent="." instance=ExtResource("5_b6phj")]
+position = Vector2(20, 544)
 
 [node name="Enemy" parent="." instance=ExtResource("7_vnkvy")]
 position = Vector2(528, 514)
 
+[node name="EggNest" parent="." instance=ExtResource("8_315pe")]
+position = Vector2(-216, 456)
+
+[connection signal="stick_counter_updated" from="BuildingManager" to="Player/UserInterface" method="_on_building_manager_stick_counter_updated"]
+[connection signal="stick_pick_up_response" from="BuildingManager" to="Player" method="_on_building_manager_stick_pick_up_response"]
 [connection signal="timeout" from="Timer60s" to="." method="_on_timer_60s_timeout"]
+[connection signal="stick_pick_up_requested" from="Player" to="BuildingManager" method="_on_player_stick_pick_up_requested"]
