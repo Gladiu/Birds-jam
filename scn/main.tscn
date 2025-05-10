@@ -2,14 +2,13 @@
 
 [ext_resource type="Script" uid="uid://c7xvlvsqkxxde" path="res://src/main.gd" id="1_7rek1"]
 [ext_resource type="PackedScene" uid="uid://clj8dp32kn2bc" path="res://scn/world.tscn" id="2_a14j1"]
-[ext_resource type="PackedScene" uid="uid://bnfvihcy54a8" path="res://scn/sticks_spawner.tscn" id="2_n2tm1"]
+[ext_resource type="PackedScene" path="res://scn/sticks_spawner.tscn" id="2_n2tm1"]
 [ext_resource type="PackedScene" uid="uid://kapo0vdcplf8" path="res://scn/player.tscn" id="3_4hsr3"]
 [ext_resource type="PackedScene" uid="uid://dxf2gretecw51" path="res://scn/building_manager.tscn" id="4_gyckk"]
 [ext_resource type="PackedScene" uid="uid://d10aid3srs8df" path="res://scn/user_interface.tscn" id="4_nq6di"]
 [ext_resource type="PackedScene" uid="uid://mbyctpra7whw" path="res://scn/stick.tscn" id="5_b6phj"]
 [ext_resource type="PackedScene" uid="uid://bui71ctakht1x" path="res://scn/enemy.tscn" id="7_vnkvy"]
-[ext_resource type="PackedScene" uid="uid://b8n7fdkldks7n" path="res://scn/egg_nest.tscn" id="8_315pe"]
-
+[ext_resource type="PackedScene" uid="uid://c0ke2ichij1oy" path="res://scn/egg_nest.tscn" id="8_315pe"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_7rek1")
@@ -34,21 +33,32 @@ offset_bottom = -289.0
 
 [node name="Stick" parent="." instance=ExtResource("5_b6phj")]
 position = Vector2(223, 530)
+collision_layer = 1
+collision_mask = 1
 
 [node name="Stick2" parent="." instance=ExtResource("5_b6phj")]
 position = Vector2(113, 380)
+collision_layer = 1
+collision_mask = 1
 
 [node name="Stick3" parent="." instance=ExtResource("5_b6phj")]
 position = Vector2(284, 441)
+collision_layer = 1
+collision_mask = 1
 
 [node name="Stick4" parent="." instance=ExtResource("5_b6phj")]
 position = Vector2(20, 544)
+collision_layer = 1
+collision_mask = 1
 
 [node name="Enemy" parent="." instance=ExtResource("7_vnkvy")]
-position = Vector2(528, 514)
+position = Vector2(114, 524)
 
 [node name="EggNest" parent="." instance=ExtResource("8_315pe")]
-position = Vector2(-216, 456)
+position = Vector2(-216, 451)
+
+[node name="EggNest2" parent="." instance=ExtResource("8_315pe")]
+position = Vector2(-470, 213)
 
 [node name="Enemy2" parent="." instance=ExtResource("7_vnkvy")]
 position = Vector2(808, 432)

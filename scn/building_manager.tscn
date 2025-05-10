@@ -18,3 +18,4 @@ script = ExtResource("3_rgwiy")
 [node name="PreviewTilemap" type="TileMapLayer" parent="."]
 material = SubResource("ShaderMaterial_f6djv")
 tile_set = ExtResource("2_rgwiy")
+collision_enabled = false
