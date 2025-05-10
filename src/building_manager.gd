@@ -16,6 +16,7 @@ const MAX_CAPACITY = 30
 		holded_sticks = value
 		stick_counter_updated.emit(holded_sticks)
 
+
 var _block_cost = 3
 
 
