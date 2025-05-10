@@ -57,6 +57,15 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 
+func _process(_delta: float) -> void:
+	# TODO: Maybe signal is not even needed?
+	for body in $PickupRange.get_overlapping_bodies():
+		if body as Stick:
+			if not _stick_to_pick_up:
+				_stick_to_pick_up = body
+				stick_pick_up_requested.emit()
+
+
 func _on_pickup_range_body_entered(body: Node2D):
 	var stick: = body as Stick
 	if not stick:
@@ -71,4 +80,4 @@ func _on_building_manager_stick_pick_up_response(pick_up: bool) -> void:
 	# Earlier we requested manager to pickup a stick, here we get response
 	if pick_up and _stick_to_pick_up:
 		_stick_to_pick_up.pickup()
-		_stick_to_pick_up = null
+	_stick_to_pick_up = null
