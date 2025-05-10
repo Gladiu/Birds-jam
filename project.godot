@@ -15,6 +15,10 @@ run/main_scene="uid://c5s73cfo1rpsc"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Global="*res://src/global.gd"
+
 [display]
 
 window/size/viewport_width=800
@@ -55,6 +59,7 @@ mouse_right_click={
 2d_physics/layer_3="building"
 2d_physics/layer_4="enemy"
 2d_physics/layer_5="egg_nest"
+2d_physics/layer_6="pickups"
 
 [rendering]
 
