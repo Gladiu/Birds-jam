@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-signal stick_picked_up
+signal stick_pick_up_requested
 
 const MOVE_SPEED = 400
 const CLIMB_TOP_SPEED = -400
@@ -16,6 +16,7 @@ enum FacingDirection
 }
 
 var _facing_direction: FacingDirection = FacingDirection.RIGHT
+var _stick_to_pick_up: Stick
 
 var stick_view_scn: = preload("res://scn/stick_view.tscn")
 
@@ -62,6 +63,13 @@ func _on_pickup_range_area_entered(area: Area2D) -> void:
 	if not stick:
 		return
 
-	# Inform manager about resource update
-	stick.pickup()
-	stick_picked_up.emit()
+	# Inform manager that we are about to pickup a stick
+	_stick_to_pick_up = stick
+	stick_pick_up_requested.emit()
+
+
+func _on_building_manager_stick_pick_up_response(pick_up: bool) -> void:
+	# Earlier we requested manager to pickup a stick, here we get response
+	if pick_up and _stick_to_pick_up:
+		_stick_to_pick_up.pickup()
+		_stick_to_pick_up = null
