@@ -109,9 +109,11 @@ animations = [{
 "speed": 12.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_dltx8"]
+radius = 32.5576
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("_animation")]
-
+collision_mask = 15
 script = ExtResource("1_386vx")
 _animation = NodePath("AnimatedSprite2D")
 
@@ -129,7 +131,6 @@ animation = &"fly"
 [node name="PickupRange" type="Area2D" parent="."]
 
 [node name="PickupRangeShape" type="CollisionShape2D" parent="PickupRange"]
-visible = false
 shape = SubResource("CircleShape2D_dltx8")
 
 [connection signal="area_entered" from="PickupRange" to="." method="_on_pickup_range_area_entered"]

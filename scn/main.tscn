@@ -1,33 +1,25 @@
-[gd_scene load_steps=7 format=3 uid="uid://c5s73cfo1rpsc"]
+[gd_scene load_steps=8 format=3 uid="uid://c5s73cfo1rpsc"]
 
 [ext_resource type="Script" uid="uid://c7xvlvsqkxxde" path="res://src/main.gd" id="1_7rek1"]
 [ext_resource type="PackedScene" uid="uid://clj8dp32kn2bc" path="res://scn/world.tscn" id="2_a14j1"]
 [ext_resource type="PackedScene" uid="uid://kapo0vdcplf8" path="res://scn/player.tscn" id="3_4hsr3"]
 [ext_resource type="PackedScene" uid="uid://dxf2gretecw51" path="res://scn/building_manager.tscn" id="4_gyckk"]
-[ext_resource type="PackedScene" uid="uid://bui71ctakht1x" path="res://scn/enemy.tscn" id="5_b6phj"]
-[ext_resource type="PackedScene" uid="uid://duonb013q2jtq" path="res://scn/user_interface.tscn" id="4_nq6di"]
-[ext_resource type="PackedScene" uid="uid://bdf2stitcfdhu" path="res://scn/stick.tscn" id="5_b6phj"]
-
+[ext_resource type="PackedScene" uid="uid://d10aid3srs8df" path="res://scn/user_interface.tscn" id="4_nq6di"]
+[ext_resource type="PackedScene" uid="uid://mbyctpra7whw" path="res://scn/stick.tscn" id="5_b6phj"]
+[ext_resource type="PackedScene" uid="uid://bui71ctakht1x" path="res://scn/enemy.tscn" id="7_vnkvy"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_7rek1")
 
 [node name="World" parent="." instance=ExtResource("2_a14j1")]
 
-[node name="Player" parent="." instance=ExtResource("3_4hsr3")]
-
 [node name="BuildingManager" parent="." instance=ExtResource("4_gyckk")]
-
-[node name="Enemy" parent="." instance=ExtResource("5_b6phj")]
-position = Vector2(680, 530)
 
 [node name="Timer60s" type="Timer" parent="."]
 wait_time = 15.0
 autostart = true
 
-[connection signal="timeout" from="Timer60s" to="." method="_on_timer_60s_timeout"]
-
-position = Vector2(44, 537)
+[node name="Player" parent="." instance=ExtResource("3_4hsr3")]
 
 [node name="UserInterface" parent="Player" instance=ExtResource("4_nq6di")]
 offset_left = 338.0
@@ -35,8 +27,10 @@ offset_top = -289.0
 offset_right = 338.0
 offset_bottom = -289.0
 
-[node name="BuildingManager" parent="." instance=ExtResource("4_gyckk")]
-
 [node name="Stick" parent="." instance=ExtResource("5_b6phj")]
 position = Vector2(182, 545)
 
+[node name="Enemy" parent="." instance=ExtResource("7_vnkvy")]
+position = Vector2(528, 514)
+
+[connection signal="timeout" from="Timer60s" to="." method="_on_timer_60s_timeout"]
