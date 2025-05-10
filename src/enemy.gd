@@ -18,6 +18,7 @@ var egg = null
 func _process(delta) -> void:
 	var closest_pos = null
 	if found_egg:
+		
 		$AnimationPlayer.play("Attack")
 		$Sprite2D.modulate = Color.WHITE.lerp(Color.RED, 1 - $EggDestroyCounter.time_left / $EggDestroyCounter.wait_time)
 	elif !Global.eggs.is_empty():
@@ -26,9 +27,9 @@ func _process(delta) -> void:
 		for egg in Global.eggs:
 			if position.distance_to(egg.position) < position.distance_to(closest_pos):
 				closest_pos = egg.position
+		velocity.x = -SPEED * (position - closest_pos).normalized().x
 		
 		
-		velocity.x = -SPEED * (position -closest_pos).normalized().x
 	
 	# Apply gravity
 	if not is_on_floor():
