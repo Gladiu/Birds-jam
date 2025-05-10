@@ -1,6 +1,8 @@
 extends CharacterBody2D
 
-const MOVE_SPEED = 10000
+signal stick_picked_up
+
+const MOVE_SPEED = 400
 const CLIMB_TOP_SPEED = -400
 const CLIMB_SPEED = 50
 var GRAVITY = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -13,18 +15,20 @@ enum FacingDirection
 	RIGHT
 }
 
-var facing_direction: FacingDirection = FacingDirection.RIGHT
+var _facing_direction: FacingDirection = FacingDirection.RIGHT
+
+var stick_view_scn: = preload("res://scn/stick_view.tscn")
 
 
 func _physics_process(delta: float) -> void:
 	# Sideways movement
 	var axis = Input.get_axis("move_left", "move_right")
-	velocity.x = axis * MOVE_SPEED * delta
+	velocity.x = axis * MOVE_SPEED
 
 	if axis > 0:
-		facing_direction = FacingDirection.RIGHT
+		_facing_direction = FacingDirection.RIGHT
 	elif axis < 0:
-		facing_direction = FacingDirection.LEFT
+		_facing_direction = FacingDirection.LEFT
 	#else: Nothing
 
 	if not is_on_floor():
@@ -40,7 +44,7 @@ func _physics_process(delta: float) -> void:
 		else:
 			_animation.play("run")
 
-	if facing_direction == FacingDirection.RIGHT:
+	if _facing_direction == FacingDirection.RIGHT:
 		_animation.flip_h = true
 	else:
 		_animation.flip_h = false
@@ -52,3 +56,12 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 	
+
+func _on_pickup_range_area_entered(area: Area2D) -> void:
+	var stick: = area as Stick
+	if not stick:
+		return
+
+	# Inform manager about resource update
+	stick.pickup()
+	stick_picked_up.emit()
