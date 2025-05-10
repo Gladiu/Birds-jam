@@ -34,23 +34,15 @@ offset_bottom = -289.0
 
 [node name="Stick" parent="." instance=ExtResource("5_b6phj")]
 position = Vector2(223, 530)
-collision_layer = 1
-collision_mask = 1
 
 [node name="Stick2" parent="." instance=ExtResource("5_b6phj")]
 position = Vector2(113, 380)
-collision_layer = 1
-collision_mask = 1
 
 [node name="Stick3" parent="." instance=ExtResource("5_b6phj")]
 position = Vector2(284, 441)
-collision_layer = 1
-collision_mask = 1
 
 [node name="Stick4" parent="." instance=ExtResource("5_b6phj")]
 position = Vector2(20, 544)
-collision_layer = 1
-collision_mask = 1
 
 [node name="Enemy" parent="." instance=ExtResource("7_vnkvy")]
 position = Vector2(114, 524)

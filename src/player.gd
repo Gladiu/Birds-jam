@@ -18,6 +18,7 @@ enum FacingDirection
 
 var _facing_direction: FacingDirection = FacingDirection.RIGHT
 var _stick_to_pick_up: Stick
+var _poop_on_cooldown: bool = false
 
 var _poop_scn: = preload("res://scn/poop.tscn")
 
@@ -70,11 +71,13 @@ func _process(_delta: float) -> void:
 				stick_pick_up_requested.emit()
 
 	# Poop
-	if Input.is_action_just_pressed("poop"):
+	if Input.is_action_just_pressed("poop") and not _poop_on_cooldown:
 		var poop: = _poop_scn.instantiate()
 		get_tree().root.add_child(poop)
 		poop.global_position = global_position
 		poop.velocity = velocity
+		_poop_on_cooldown = true
+		$PoopCooldown.start()
 
 
 func _on_pickup_range_body_entered(body: Node2D):
@@ -92,3 +95,7 @@ func _on_building_manager_stick_pick_up_response(pick_up: bool) -> void:
 	if pick_up and _stick_to_pick_up:
 		_stick_to_pick_up.pickup()
 	_stick_to_pick_up = null
+
+
+func _on_poop_cooldown_timeout():
+	_poop_on_cooldown = false
