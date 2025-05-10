@@ -22,5 +22,6 @@ func set_time_factor(factor : float):
 		$Sky/ColorRect.color = DAY_COLOR.lerp(NIGHT_COLOR, factor)
 	else:
 		$Sky/ColorRect.color = NIGHT_COLOR.lerp(DAY_COLOR, factor)
+		
 	
 	

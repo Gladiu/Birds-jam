@@ -1,6 +1,6 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://cre2ubysatibk"]
+[gd_resource type="Resource" script_class="EggData" load_steps=2 format=3 uid="uid://b0xnp4obncpl7"]
 
-[ext_resource type="Script" uid="uid://dlt568vmm7wee" path="res://src/egg_data.gd" id="1_14fbc"]
+[ext_resource type="Script" path="res://src/egg_data.gd" id="1_14fbc"]
 
 [resource]
 script = ExtResource("1_14fbc")
