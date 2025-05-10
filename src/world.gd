@@ -1,3 +1,4 @@
+class_name World
 extends Node
 enum TIME_ENUM {DAY, NIGHT}
 
