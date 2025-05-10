@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://kapo0vdcplf8"]
 
-[ext_resource type="Script" uid="uid://dtwyadi1flc8c" path="res://src/player.gd" id="1_386vx"]
+[ext_resource type="Script" path="res://src/player.gd" id="1_386vx"]
 [ext_resource type="Texture2D" uid="uid://bor58bcmdjyn3" path="res://ast/player/BirdSprite.png" id="2_dltx8"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dltx8"]

@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://c5s73cfo1rpsc"]
+[gd_scene load_steps=6 format=3 uid="uid://c5s73cfo1rpsc"]
 
 [ext_resource type="Script" uid="uid://c7xvlvsqkxxde" path="res://src/main.gd" id="1_7rek1"]
 [ext_resource type="PackedScene" uid="uid://clj8dp32kn2bc" path="res://scn/world.tscn" id="2_a14j1"]
-[ext_resource type="PackedScene" uid="uid://dwhv5lspeybnu" path="res://scn/player.tscn" id="3_4hsr3"]
+[ext_resource type="PackedScene" uid="uid://kapo0vdcplf8" path="res://scn/player.tscn" id="3_4hsr3"]
 [ext_resource type="PackedScene" uid="uid://dxf2gretecw51" path="res://scn/building_manager.tscn" id="4_gyckk"]
+[ext_resource type="PackedScene" uid="uid://bui71ctakht1x" path="res://scn/enemy.tscn" id="5_b6phj"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_7rek1")
@@ -13,3 +14,6 @@ script = ExtResource("1_7rek1")
 [node name="Player" parent="." instance=ExtResource("3_4hsr3")]
 
 [node name="BuildingManager" parent="." instance=ExtResource("4_gyckk")]
+
+[node name="Enemy" parent="." instance=ExtResource("5_b6phj")]
+position = Vector2(680, 530)
