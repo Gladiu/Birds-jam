@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://gcinq16wtv4w"]
+
+[ext_resource type="Texture2D" uid="uid://cbrm6s6thma4n" path="res://ast/stick.png" id="1_np0c4"]
+
+[node name="StickView" type="Sprite2D"]
+texture = ExtResource("1_np0c4")
