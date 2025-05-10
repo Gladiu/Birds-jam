@@ -56,10 +56,9 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
-	
 
-func _on_pickup_range_area_entered(area: Area2D) -> void:
-	var stick: = area as Stick
+func _on_pickup_range_body_entered(body: Node2D):
+	var stick: = body as Stick
 	if not stick:
 		return
 
