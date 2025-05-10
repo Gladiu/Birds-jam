@@ -1,6 +1,5 @@
 class_name Enemy
 extends CharacterBody2D
-class_name Enemy
 
 const SPEED = 100
 const CLIMB_TOP_SPEED = -200
@@ -26,9 +25,9 @@ func _process(delta) -> void:
 	elif !Global.eggs.is_empty():
 		closest_pos = Global.eggs[0].position
 		
-		for egg in Global.eggs:
-			if position.distance_to(egg.position) < position.distance_to(closest_pos):
-				closest_pos = egg.position
+		for e in Global.eggs:
+			if position.distance_to(e.position) < position.distance_to(closest_pos):
+				closest_pos = e.position
 		velocity.x = -SPEED * (position - closest_pos).normalized().x
 		
 		
