@@ -109,10 +109,9 @@ animations = [{
 "speed": 12.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_dltx8"]
-radius = 30.0666
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("_animation")]
+
 script = ExtResource("1_386vx")
 _animation = NodePath("AnimatedSprite2D")
 

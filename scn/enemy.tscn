@@ -1,0 +1,90 @@
+[gd_scene load_steps=8 format=3 uid="uid://bui71ctakht1x"]
+
+[ext_resource type="Script" uid="uid://dkmf1oy4aip3q" path="res://src/enemy.gd" id="1_h7ot2"]
+[ext_resource type="Texture2D" uid="uid://btx6lvrac3u7s" path="res://ast/32x32-Charset.png" id="1_wkv20"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h7ot2"]
+size = Vector2(77, 47)
+
+[sub_resource type="Animation" id="Animation_5ohnt"]
+resource_name = "Attack"
+length = 0.166675
+step = 0.0833333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0833333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [42, 43]
+}
+
+[sub_resource type="Animation" id="Animation_rd7jk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [40]
+}
+
+[sub_resource type="Animation" id="Animation_h7ot2"]
+resource_name = "Walk"
+length = 0.166675
+loop_mode = 1
+step = 0.0833333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0833333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [40, 41]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5ohnt"]
+_data = {
+&"Attack": SubResource("Animation_5ohnt"),
+&"RESET": SubResource("Animation_rd7jk"),
+&"Walk": SubResource("Animation_h7ot2")
+}
+
+[node name="Enemy" type="CharacterBody2D"]
+collision_mask = 15
+script = ExtResource("1_h7ot2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(3, 3)
+texture = ExtResource("1_wkv20")
+hframes = 8
+vframes = 21
+frame = 40
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 21)
+shape = SubResource("RectangleShape2D_h7ot2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../CollisionShape2D")
+libraries = {
+&"": SubResource("AnimationLibrary_5ohnt")
+}
+
+[node name="ClimbTimeout" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="ClimbTimeout" to="." method="_on_climb_timeout_timeout"]
