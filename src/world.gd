@@ -10,7 +10,7 @@ const SKYBOX_BOUNDARY = -5616
 enum TIME_ENUM {DAY, NIGHT}
 
 var DAY_COLOR = Color.hex(0x66bdffff)
-var NIGHT_COLOR = Color.hex(0x000000ff)
+var NIGHT_COLOR = Color.hex(0x172e63ff)
 
 var current_time: TIME_ENUM = TIME_ENUM.NIGHT
 

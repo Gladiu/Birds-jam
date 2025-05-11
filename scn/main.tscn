@@ -21,23 +21,19 @@ script = ExtResource("1_7rek1")
 [node name="BuildingManager" parent="." instance=ExtResource("4_gyckk")]
 
 [node name="Timer60s" type="Timer" parent="."]
-wait_time = 15.0
+wait_time = 60.0
 autostart = true
 
 [node name="Sky" type="CanvasLayer" parent="Timer60s"]
 layer = 67
 
 [node name="Clock2" type="Sprite2D" parent="Timer60s/Sky"]
-
 position = Vector2(80, 79)
-
 scale = Vector2(3, 3)
 texture = ExtResource("5_rqnb2")
 
 [node name="Hand" type="Sprite2D" parent="Timer60s/Sky"]
-
 position = Vector2(80, 79)
-
 scale = Vector2(3, 3)
 texture = ExtResource("6_k3l4p")
 
@@ -48,15 +44,7 @@ offset_bottom = 1.0
 [node name="Player" parent="." instance=ExtResource("3_4hsr3")]
 position = Vector2(151, 74)
 
-
-[node name="UserInterface" parent="Player" instance=ExtResource("4_nq6di")]
-offset_left = 338.0
-offset_top = -289.0
-offset_right = 338.0
-offset_bottom = -289.0
-
 [node name="StartingSticks" type="Node2D" parent="."]
-
 position = Vector2(326, 361)
 
 [node name="Stick" parent="StartingSticks" instance=ExtResource("9_rqnb2")]
