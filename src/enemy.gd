@@ -38,8 +38,7 @@ func _process(delta) -> void:
 	
 	if closest_pos != null:
 		$RayCast2D.target_position = position.direction_to(closest_pos).normalized()*RANGE
-		if is_on_wall() and get_last_slide_collision().get_collider() is TileMapLayer and !give_up_current_climb \
-			and closest_pos.y < position.y:
+		if is_on_wall() and get_last_slide_collision().get_collider() is TileMapLayer and !give_up_current_climb:
 			if $ClimbTimeout.time_left == 0:
 				$ClimbTimeout.start()
 			
