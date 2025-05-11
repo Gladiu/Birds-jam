@@ -3,7 +3,7 @@ extends Node
 var stick_scn = preload("res://scn/stick.tscn")
 var enemy_scn = preload("res://scn/enemy.tscn")
 
-var day_count = 0
+var day_count = 1
 var base_stick_spawn_count = 20
 var base_enemy_spawn_count = 4
 

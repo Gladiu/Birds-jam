@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://bui71ctakht1x"]
+[gd_scene load_steps=10 format=3 uid="uid://bui71ctakht1x"]
 
 [ext_resource type="Script" uid="uid://dkmf1oy4aip3q" path="res://src/enemy.gd" id="1_h7ot2"]
 [ext_resource type="Texture2D" uid="uid://btx6lvrac3u7s" path="res://ast/32x32-Charset.png" id="1_wkv20"]
+[ext_resource type="AudioStream" uid="uid://drtbkl5wwyng1" path="res://ast/Eating.wav" id="3_rd7jk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h7ot2"]
 size = Vector2(47, 47)
@@ -112,8 +113,14 @@ collision_mask = 4
 wait_time = 3.0
 autostart = true
 
+[node name="Eat" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_rd7jk")
+
+[node name="EggEatingSound" type="Timer" parent="Eat"]
+
 [connection signal="timeout" from="ClimbTimeout" to="." method="_on_climb_timeout_timeout"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
 [connection signal="timeout" from="EggDestroyCounter" to="." method="_on_egg_destroy_counter_timeout"]
 [connection signal="timeout" from="DestroyTimeout" to="." method="_on_destroy_timeout_timeout"]
+[connection signal="timeout" from="Eat/EggEatingSound" to="." method="_on_egg_eating_sound_timeout"]

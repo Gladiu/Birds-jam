@@ -55,6 +55,9 @@ func _physics_process(delta: float) -> void:
 
 	# Fly
 	if Input.is_action_pressed("fly"):
+		if $Fly/FlyTimer.time_left == 0:
+			$Fly.play()
+			$Fly/FlyTimer.start()
 		velocity.y = move_toward(velocity.y, CLIMB_TOP_SPEED, CLIMB_SPEED)
 
 	move_and_slide()
@@ -72,6 +75,7 @@ func _process(_delta: float) -> void:
 
 	# Poop
 	if Input.is_action_just_pressed("poop") and not _poop_on_cooldown:
+		$Shit.play()
 		var poop: = _poop_scn.instantiate()
 		get_tree().root.add_child(poop)
 		poop.global_position = global_position

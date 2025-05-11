@@ -4,7 +4,7 @@ extends Node
 signal daytime_switched(current: TIME_ENUM)
 
 const WEST_BOUNDARY = -2688
-const EAST_BOUNDARY = 9120
+const EAST_BOUNDARY = 9275.25
 const SKYBOX_BOUNDARY = -5616
 
 enum TIME_ENUM {DAY, NIGHT}
