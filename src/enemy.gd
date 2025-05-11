@@ -19,7 +19,7 @@ var egg = null
 func _process(delta) -> void:
 	var closest_pos = null
 	if found_egg:
-		
+		velocity.x = 0
 		$AnimationPlayer.play("Attack")
 		$Sprite2D.modulate = Color.WHITE.lerp(Color.RED, 1 - $EggDestroyCounter.time_left / $EggDestroyCounter.wait_time)
 	elif !Global.eggs.is_empty():
@@ -38,8 +38,7 @@ func _process(delta) -> void:
 	
 	if closest_pos != null:
 		$RayCast2D.target_position = position.direction_to(closest_pos).normalized()*RANGE
-		if is_on_wall() and get_last_slide_collision().get_collider() is TileMapLayer and !give_up_current_climb \
-			and closest_pos.y < position.y:
+		if is_on_wall() and get_last_slide_collision().get_collider() is TileMapLayer and !give_up_current_climb:
 			if $ClimbTimeout.time_left == 0:
 				$ClimbTimeout.start()
 			
@@ -62,12 +61,14 @@ func _on_climb_timeout_timeout():
 
 
 func _on_area_2d_area_entered(area):
+	print("Found egg!")
 	egg = area
 	found_egg = true
 	$EggDestroyCounter.start()
 
 func _on_area_2d_area_exited(area):
 	egg = null
+	print("Lost egg")
 	found_egg = false
 	$Sprite2D.modulate = Color.WHITE
 	$EggDestroyCounter.stop()
