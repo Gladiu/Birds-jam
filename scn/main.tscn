@@ -25,24 +25,29 @@ wait_time = 15.0
 autostart = true
 
 [node name="Sky" type="CanvasLayer" parent="Timer60s"]
-layer = -128
+layer = 67
 
 [node name="Clock2" type="Sprite2D" parent="Timer60s/Sky"]
-z_index = 4096
-z_as_relative = false
-position = Vector2(166, 127)
+
+position = Vector2(80, 79)
+
 scale = Vector2(3, 3)
 texture = ExtResource("5_rqnb2")
 
 [node name="Hand" type="Sprite2D" parent="Timer60s/Sky"]
-z_index = 4096
-z_as_relative = false
-position = Vector2(166, 127)
+
+position = Vector2(80, 79)
+
 scale = Vector2(3, 3)
 texture = ExtResource("6_k3l4p")
 
+[node name="UserInterface" parent="Timer60s/Sky" instance=ExtResource("4_nq6di")]
+offset_top = 1.0
+offset_bottom = 1.0
+
 [node name="Player" parent="." instance=ExtResource("3_4hsr3")]
 position = Vector2(151, 74)
+
 
 [node name="UserInterface" parent="Player" instance=ExtResource("4_nq6di")]
 offset_left = 338.0
@@ -51,6 +56,7 @@ offset_right = 338.0
 offset_bottom = -289.0
 
 [node name="StartingSticks" type="Node2D" parent="."]
+
 position = Vector2(326, 361)
 
 [node name="Stick" parent="StartingSticks" instance=ExtResource("9_rqnb2")]
@@ -115,7 +121,8 @@ position = Vector2(343, -93)
 [node name="EggNest8" parent="Nests" instance=ExtResource("8_315pe")]
 position = Vector2(686, -377)
 
-[connection signal="stick_counter_updated" from="BuildingManager" to="Player/UserInterface" method="_on_building_manager_stick_counter_updated"]
+[connection signal="daytime_switched" from="World" to="Timer60s/Sky/UserInterface" method="_on_world_daytime_switched"]
+[connection signal="stick_counter_updated" from="BuildingManager" to="Timer60s/Sky/UserInterface" method="_on_building_manager_stick_counter_updated"]
 [connection signal="stick_pick_up_response" from="BuildingManager" to="Player" method="_on_building_manager_stick_pick_up_response"]
 [connection signal="timeout" from="Timer60s" to="." method="_on_timer_60s_timeout"]
 [connection signal="stick_pick_up_requested" from="Player" to="BuildingManager" method="_on_player_stick_pick_up_requested"]

@@ -61,7 +61,6 @@ func _on_climb_timeout_timeout():
 
 
 func _on_area_2d_area_entered(area):
-	print("Found egg!")
 	egg = area
 	found_egg = true
 	$EggDestroyCounter.start()
@@ -69,7 +68,6 @@ func _on_area_2d_area_entered(area):
 
 func _on_area_2d_area_exited(area):
 	egg = null
-	print("Lost egg")
 	found_egg = false
 	$Sprite2D.modulate = Color.WHITE
 	$EggDestroyCounter.stop()

@@ -7,6 +7,8 @@ var day_count = 1
 var base_stick_spawn_count = 20
 var base_enemy_spawn_count = 4
 
+var menu: = preload("res://scn/menu.tscn")
+
 
 func _on_timer_60s_timeout():
 	$World.toggle_day_night()
@@ -43,4 +45,5 @@ func _process(delta):
 	$World.set_time_factor(factor_untill_next_day)
 	$Timer60s/Sky/Hand.rotation = factor_untill_next_day * 2 * PI
 	if Global.eggs.is_empty():
-		print("YOU WIN")
+		#queue_free()
+		get_tree().change_scene_to_file("res://scn/menu.tscn")
