@@ -65,6 +65,7 @@ func _on_area_2d_area_entered(area):
 	egg = area
 	found_egg = true
 	$EggDestroyCounter.start()
+	$Eat/EggEatingSound.start()
 
 func _on_area_2d_area_exited(area):
 	egg = null
@@ -72,6 +73,7 @@ func _on_area_2d_area_exited(area):
 	found_egg = false
 	$Sprite2D.modulate = Color.WHITE
 	$EggDestroyCounter.stop()
+	$Eat/EggEatingSound.stop()
 	$EggDestroyCounter.wait_time = 5
 
 
@@ -81,6 +83,7 @@ func _on_egg_destroy_counter_timeout():
 	found_egg = false
 	$Sprite2D.modulate = Color.WHITE
 	$EggDestroyCounter.stop()
+	$Eat/EggEatingSound.stop()
 	$EggDestroyCounter.wait_time = 5
 	egg.destroy_egg()
 	egg = null
@@ -92,3 +95,7 @@ func _on_destroy_timeout_timeout():
 		var cell = tilemap.local_to_map($RayCast2D.get_collision_point() - $RayCast2D.get_collision_normal())
 		var tile_id = tilemap.get_cell_source_id(cell)
 		tilemap.destroy_block(cell)
+
+
+func _on_egg_eating_sound_timeout():
+	$Eat.play()
