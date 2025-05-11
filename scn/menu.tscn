@@ -1,0 +1,84 @@
+[gd_scene load_steps=3 format=3 uid="uid://4xl74xxqqqyj"]
+
+[ext_resource type="Texture2D" uid="uid://bor58bcmdjyn3" path="res://ast/player/bird_sprites.png" id="1_cwu4d"]
+[ext_resource type="Script" uid="uid://melssmatsknx" path="res://src/menu.gd" id="1_egyie"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_egyie")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.4, 0.741176, 1, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -418.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="GameTitle" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 70
+text = "Crappy Birds"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Play"
+
+[node name="Tutorial" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "In this game You have to defend Your eggs from hordes of enemies attacking them at night.
+
+Use sticks to build defenses and crap to kill Your enemies. Use day and night cycle to Your advantage,
+defend at night and build during the daytime.
+
+Controls:
+LMB - Build barricades (costs 3x sticks)
+RMB - destroy barricade to get sticks back
+A and D - move left and right
+SPACE - fly
+CTRL - crap"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 146.0
+offset_top = -84.0
+offset_right = 186.0
+offset_bottom = -44.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(525, 125)
+scale = Vector2(11.08, 11.08)
+texture = ExtResource("1_cwu4d")
+hframes = 8
+vframes = 3
+
+[connection signal="button_down" from="VBoxContainer/Button" to="." method="_on_button_button_down"]
