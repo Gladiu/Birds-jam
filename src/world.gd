@@ -1,5 +1,10 @@
 class_name World
 extends Node
+
+const WEST_BOUNDARY = -2688
+const EAST_BOUNDARY = 9120
+const SKYBOX_BOUNDARY = -5616
+
 enum TIME_ENUM {DAY, NIGHT}
 
 var DAY_COLOR = Color.hex(0x66bdffff)
@@ -16,7 +21,8 @@ func toggle_day_night():
 		current_time = TIME_ENUM.NIGHT
 	else:
 		current_time = TIME_ENUM.DAY
-	
+
+
 func set_time_factor(factor : float):
 	if current_time == TIME_ENUM.DAY:
 		$Sky/ColorRect.color = DAY_COLOR.lerp(NIGHT_COLOR, factor)

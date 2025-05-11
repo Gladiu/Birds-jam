@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bnfvihcy54a8"]
-
-[ext_resource type="Script" uid="uid://b2lsjd1rc7u5w" path="res://src/sticks_spawner.gd" id="1_5mq01"]
-
-[node name="SticksSpawner" type="Node"]
-script = ExtResource("1_5mq01")

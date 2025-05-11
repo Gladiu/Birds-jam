@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bnfvihcy54a8"]
+
+[ext_resource type="Script" uid="uid://b2lsjd1rc7u5w" path="res://src/entity_drop_spawner.gd" id="1_5mq01"]
+
+[node name="EntityDropSpawner" type="Node"]
+script = ExtResource("1_5mq01")
