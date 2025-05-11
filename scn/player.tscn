@@ -1,7 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://kapo0vdcplf8"]
+[gd_scene load_steps=20 format=3 uid="uid://kapo0vdcplf8"]
 
 [ext_resource type="Script" uid="uid://dtwyadi1flc8c" path="res://src/player.gd" id="1_386vx"]
 [ext_resource type="Texture2D" uid="uid://bor58bcmdjyn3" path="res://ast/player/bird_sprites.png" id="2_dltx8"]
+[ext_resource type="AudioStream" uid="uid://cy80kchd2ki5w" path="res://ast/Shit.wav" id="3_diy2p"]
+[ext_resource type="AudioStream" uid="uid://cau3x00biarbi" path="res://ast/Fly.wav" id="4_eoiiq"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dltx8"]
 radius = 17.0
@@ -137,6 +139,19 @@ shape = SubResource("CircleShape2D_dltx8")
 
 [node name="PoopCooldown" type="Timer" parent="."]
 one_shot = true
+
+[node name="Shit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_diy2p")
+
+[node name="Fly" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_eoiiq")
+
+[node name="FlyTimer" type="Timer" parent="Fly"]
+wait_time = 0.25
+one_shot = true
+
+[node name="AudioListener2D" type="AudioListener2D" parent="."]
+current = true
 
 [connection signal="body_entered" from="PickupRange" to="." method="_on_pickup_range_body_entered"]
 [connection signal="timeout" from="PoopCooldown" to="." method="_on_poop_cooldown_timeout"]

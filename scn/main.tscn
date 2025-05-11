@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c5s73cfo1rpsc"]
+[gd_scene load_steps=11 format=3 uid="uid://c5s73cfo1rpsc"]
 
 [ext_resource type="Script" uid="uid://c7xvlvsqkxxde" path="res://src/main.gd" id="1_7rek1"]
 [ext_resource type="PackedScene" uid="uid://clj8dp32kn2bc" path="res://scn/world.tscn" id="2_a14j1"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://ceiok84rpv4wd" path="res://ast/clock.png" id="5_rqnb2"]
 [ext_resource type="Texture2D" uid="uid://glhmjrblb3lo" path="res://ast/hand.png" id="6_k3l4p"]
 [ext_resource type="PackedScene" uid="uid://c0ke2ichij1oy" path="res://scn/egg_nest.tscn" id="8_315pe"]
+[ext_resource type="PackedScene" uid="uid://mbyctpra7whw" path="res://scn/stick.tscn" id="9_rqnb2"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_7rek1")
@@ -27,11 +28,15 @@ autostart = true
 layer = -128
 
 [node name="Clock2" type="Sprite2D" parent="Timer60s/Sky"]
+z_index = 4096
+z_as_relative = false
 position = Vector2(166, 127)
 scale = Vector2(3, 3)
 texture = ExtResource("5_rqnb2")
 
 [node name="Hand" type="Sprite2D" parent="Timer60s/Sky"]
+z_index = 4096
+z_as_relative = false
 position = Vector2(166, 127)
 scale = Vector2(3, 3)
 texture = ExtResource("6_k3l4p")
@@ -45,11 +50,70 @@ offset_top = -289.0
 offset_right = 338.0
 offset_bottom = -289.0
 
-[node name="EggNest" parent="." instance=ExtResource("8_315pe")]
+[node name="StartingSticks" type="Node2D" parent="."]
 position = Vector2(326, 361)
 
-[node name="EggNest2" parent="." instance=ExtResource("8_315pe")]
-position = Vector2(-113, 406)
+[node name="Stick" parent="StartingSticks" instance=ExtResource("9_rqnb2")]
+position = Vector2(-319, 44)
+
+[node name="Stick2" parent="StartingSticks" instance=ExtResource("9_rqnb2")]
+position = Vector2(-262, 47)
+
+[node name="Stick3" parent="StartingSticks" instance=ExtResource("9_rqnb2")]
+position = Vector2(-197, 44)
+
+[node name="Stick4" parent="StartingSticks" instance=ExtResource("9_rqnb2")]
+position = Vector2(-130, 44)
+
+[node name="Stick5" parent="StartingSticks" instance=ExtResource("9_rqnb2")]
+position = Vector2(65, -3)
+
+[node name="Stick6" parent="StartingSticks" instance=ExtResource("9_rqnb2")]
+position = Vector2(431, -151)
+
+[node name="Stick7" parent="StartingSticks" instance=ExtResource("9_rqnb2")]
+position = Vector2(501, -288)
+
+[node name="Stick8" parent="StartingSticks" instance=ExtResource("9_rqnb2")]
+position = Vector2(275, -62)
+
+[node name="Stick9" parent="StartingSticks" instance=ExtResource("9_rqnb2")]
+position = Vector2(-698, 91)
+
+[node name="Stick10" parent="StartingSticks" instance=ExtResource("9_rqnb2")]
+position = Vector2(-781, 94)
+
+[node name="Stick11" parent="StartingSticks" instance=ExtResource("9_rqnb2")]
+position = Vector2(-859, 47)
+
+[node name="Stick12" parent="StartingSticks" instance=ExtResource("9_rqnb2")]
+position = Vector2(-986, -5)
+
+[node name="Nests" type="Node2D" parent="."]
+position = Vector2(326, 361)
+
+[node name="EggNest" parent="Nests" instance=ExtResource("8_315pe")]
+
+[node name="EggNest2" parent="Nests" instance=ExtResource("8_315pe")]
+position = Vector2(-439, 45)
+
+[node name="EggNest3" parent="Nests" instance=ExtResource("8_315pe")]
+position = Vector2(-382, 47)
+
+[node name="EggNest4" parent="Nests" instance=ExtResource("8_315pe")]
+position = Vector2(-579, 52)
+
+[node name="EggNest5" parent="Nests" instance=ExtResource("8_315pe")]
+position = Vector2(-1199, -49)
+
+[node name="EggNest6" parent="Nests" instance=ExtResource("8_315pe")]
+position = Vector2(-1470, -97)
+
+[node name="EggNest7" parent="Nests" instance=ExtResource("8_315pe")]
+position = Vector2(343, -93)
+
+[node name="EggNest8" parent="Nests" instance=ExtResource("8_315pe")]
+position = Vector2(686, -377)
 
 [connection signal="stick_counter_updated" from="BuildingManager" to="Player/UserInterface" method="_on_building_manager_stick_counter_updated"]
 [connection signal="stick_pick_up_response" from="BuildingManager" to="Player" method="_on_building_manager_stick_pick_up_response"]
