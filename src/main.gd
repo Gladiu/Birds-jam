@@ -35,6 +35,8 @@ func _on_timer_60s_timeout():
 
 
 func _process(delta):
-	$World.set_time_factor(1 - ($Timer60s.time_left / $Timer60s.wait_time))
+	var factor_untill_next_day = 1 - ($Timer60s.time_left / $Timer60s.wait_time)
+	$World.set_time_factor(factor_untill_next_day)
+	$Timer60s/Sky/Hand.rotation = factor_untill_next_day * 2 * PI
 	if Global.eggs.is_empty():
 		print("YOU WIN")

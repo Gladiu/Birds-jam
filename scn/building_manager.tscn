@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=3 uid="uid://dxf2gretecw51"]
 
 [ext_resource type="Script" uid="uid://b7ojvd62b5dvp" path="res://src/building_manager.gd" id="1_uq00a"]
-[ext_resource type="PackedScene" uid="uid://cwspvnjptjwjd" path="res://scn/mouse_collider.tscn" id="2_f6djv"]
+[ext_resource type="PackedScene" path="res://scn/mouse_collider.tscn" id="2_f6djv"]
 [ext_resource type="TileSet" uid="uid://farfaivr4lg4" path="res://scn/building_manager_tileset.res" id="2_rgwiy"]
 [ext_resource type="Script" uid="uid://bgkw2yhn53jk2" path="res://src/building_tilemap.gd" id="3_rgwiy"]
-[ext_resource type="Shader" path="res://scn/preview_building_manager.gdshader" id="4_2d6ea"]
+[ext_resource type="Shader" uid="uid://daldmp0h7rqi6" path="res://scn/preview_building_manager.gdshader" id="4_2d6ea"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_f6djv"]
 shader = ExtResource("4_2d6ea")

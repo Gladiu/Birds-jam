@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://b8n7fdkldks7n"]
+[gd_scene load_steps=4 format=3 uid="uid://c0ke2ichij1oy"]
 
 [ext_resource type="Texture2D" uid="uid://bumpd5acmw66i" path="res://ast/egg_nest.png" id="1_g81j7"]
 [ext_resource type="Script" uid="uid://bcu0dkl2gops8" path="res://src/egg_nest.gd" id="1_lw1lm"]
