@@ -1,20 +1,19 @@
-[gd_scene load_steps=11 format=3 uid="uid://c5s73cfo1rpsc"]
+[gd_scene load_steps=10 format=3 uid="uid://c5s73cfo1rpsc"]
 
 [ext_resource type="Script" uid="uid://c7xvlvsqkxxde" path="res://src/main.gd" id="1_7rek1"]
 [ext_resource type="PackedScene" uid="uid://clj8dp32kn2bc" path="res://scn/world.tscn" id="2_a14j1"]
-[ext_resource type="PackedScene" uid="uid://bnfvihcy54a8" path="res://scn/sticks_spawner.tscn" id="2_n2tm1"]
+[ext_resource type="PackedScene" uid="uid://bnfvihcy54a8" path="res://scn/entity_drop_spawner.tscn" id="2_n2tm1"]
 [ext_resource type="PackedScene" uid="uid://kapo0vdcplf8" path="res://scn/player.tscn" id="3_4hsr3"]
 [ext_resource type="PackedScene" uid="uid://dxf2gretecw51" path="res://scn/building_manager.tscn" id="4_gyckk"]
 [ext_resource type="PackedScene" uid="uid://d10aid3srs8df" path="res://scn/user_interface.tscn" id="4_nq6di"]
 [ext_resource type="Texture2D" uid="uid://ceiok84rpv4wd" path="res://ast/clock.png" id="5_rqnb2"]
 [ext_resource type="Texture2D" uid="uid://glhmjrblb3lo" path="res://ast/hand.png" id="6_k3l4p"]
-[ext_resource type="PackedScene" uid="uid://bui71ctakht1x" path="res://scn/enemy.tscn" id="7_vnkvy"]
 [ext_resource type="PackedScene" uid="uid://c0ke2ichij1oy" path="res://scn/egg_nest.tscn" id="8_315pe"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_7rek1")
 
-[node name="SticksSpawner" parent="." instance=ExtResource("2_n2tm1")]
+[node name="EntityRandomSpawner" parent="." instance=ExtResource("2_n2tm1")]
 
 [node name="World" parent="." instance=ExtResource("2_a14j1")]
 
@@ -46,17 +45,11 @@ offset_top = -289.0
 offset_right = 338.0
 offset_bottom = -289.0
 
-[node name="Enemy" parent="." instance=ExtResource("7_vnkvy")]
-position = Vector2(-283, 385)
-
 [node name="EggNest" parent="." instance=ExtResource("8_315pe")]
 position = Vector2(326, 361)
 
 [node name="EggNest2" parent="." instance=ExtResource("8_315pe")]
 position = Vector2(-113, 406)
-
-[node name="Enemy2" parent="." instance=ExtResource("7_vnkvy")]
-position = Vector2(750, 177)
 
 [connection signal="stick_counter_updated" from="BuildingManager" to="Player/UserInterface" method="_on_building_manager_stick_counter_updated"]
 [connection signal="stick_pick_up_response" from="BuildingManager" to="Player" method="_on_building_manager_stick_pick_up_response"]
